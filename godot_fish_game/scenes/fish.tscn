@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddf2c7oe7wo6j"]
+
+[ext_resource type="Texture2D" path="res://assets/enemy_fish.svg" id="1_texture"]
+[ext_resource type="Script" path="res://scripts/fish.gd" id="2_script"]
+
+[sub_resource type="CircleShape2D" id="1_shape"]
+radius = 22.0
+
+[node name="Fish" type="Area2D"]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1_shape")
