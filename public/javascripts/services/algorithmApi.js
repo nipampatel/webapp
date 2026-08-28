@@ -1,6 +1,6 @@
 import { algorithmSample } from '../data/algorithmSample.js';
 
-const API_BASE_URL = window.__ALGO_API_BASE_URL__ ?? 'http://localhost:5000/api/algorithms';
+const API_BASE_URL = window.__ALGO_API_BASE_URL__ ?? '/api/algorithms';
 
 export async function loadAlgorithm() {
   try {
@@ -22,6 +22,6 @@ export async function saveAlgorithm(payload) {
     if (!response.ok) throw new Error(`Failed with ${response.status}`);
     return { ok: true, source: 'api' };
   } catch (_) {
-    return { ok: true, source: 'local-fallback' };
+    return { ok: false, source: 'api' };
   }
 }
