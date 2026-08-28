@@ -65,7 +65,10 @@ function renderHeader(container) {
 
   header.querySelector('#save-button').addEventListener('click', async () => {
     const result = await saveAlgorithm(state);
-    saveStatus(result.source === 'api' ? 'Saved to .NET API' : 'Saved locally (API unavailable)');
+    saveStatus(
+      result.ok ? 'Saved to .NET API' : 'Save failed — API unavailable',
+      result.ok ? 'ok' : 'error',
+    );
   });
 }
 
